@@ -3,7 +3,10 @@ import classes from './Button.module.css';
 
 const button = (props) => {
     return (
-        <button onClick={props.clicked} className={[classes.Button, classes[props.btnType]].join(' ')}>
+        <button
+            disabled={props.disabled}
+            onClick={props.clicked}
+            className={[classes.Button, classes[props.btnType]].join(' ')}>
             {props.children}
         </button>
     );
