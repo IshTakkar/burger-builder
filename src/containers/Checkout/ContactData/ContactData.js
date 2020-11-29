@@ -70,7 +70,7 @@ class ContactData extends Component {
 
     orderHandler = (event) => {
         event.preventDefault();
-        this.setState({ isLoading: true });
+        // this.setState({ isLoading: true });
         const formData = {};
         for (let formElementIdentifier in this.state.orderForm) {
             formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
@@ -79,10 +79,11 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ings,
             totalPrice: this.props.totPrice,
-            orderData: formData
+            orderData: formData,
+            userId: this.props.userId
         }
-
-        this.props.onOrderBurger(order);
+        console.log(order);
+        this.props.onOrderBurger(order, this.props.token);
         
     }
 
@@ -152,12 +153,14 @@ const mapStateToProps = state => {
         ings: state.burgerBuilder.ingredients,
         totPrice: state.burgerBuilder.totalPrice,
         isLoading: state.orders.loading,
+        token: state.auth.token,
+        userId: state.auth.userId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(orderActions.purchaseBurger(orderData))
+        onOrderBurger: (orderData, token) => dispatch(orderActions.purchaseBurger(orderData, token))
     };
 };
 
