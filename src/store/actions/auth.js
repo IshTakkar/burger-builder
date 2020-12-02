@@ -52,12 +52,10 @@ export const auth = (email, password, isSignIn) => {
             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBD_9XlSoQJMc3DKitAKDGG508_XhKm9Lw'
         axios.post(url, authData)
             .then(response => {
-                console.log(response);
                 const expirationTime = new Date(new Date().getTime() + response.data.expiresIn * 10000);
                 localStorage.setItem('token', response.data.idToken);
                 localStorage.setItem('expirationTime', expirationTime);
                 localStorage.setItem('userID', response.data.localId);
-                console.log(response.data);
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
             })
