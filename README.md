@@ -1,4 +1,28 @@
-https://react-my-burger-e5fe1.web.app
+Visit the website: https://react-my-burger-e5fe1.web.app
+## Burger Builder v1
+This is a burger builder single-page web application which is created entirely using React and Redux, complete with authentication and routing. Styling is done using CSS Modules. Redux Thunk middleware is used for asynchronous functionality. Data fetching from the Firebase Backend is done using Axios. Finally, Enzyme is used for testing functionality.
+
+## Landing Page
+
+![](screenshots/1.png)
+
+## Burger Being Built
+
+![](screenshots/2.png)
+
+## Authentication Form
+
+![](screenshots/3.png)
+
+## Contact Form
+
+![](screenshots/4.png)
+
+## Orders Page
+
+![](screenshots/5.png)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
